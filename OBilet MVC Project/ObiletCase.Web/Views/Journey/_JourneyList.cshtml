@@ -1,0 +1,185 @@
+<div class="col-lg-9 col-md-8">
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            <i class="fa-solid fa-circle-exclamation me-2"></i>
+            @Model.ErrorMessage
+        </div>
+    }
+
+    @if (!Model.HasJourneys)
+    {
+        <!-- Empty State -->
+        <div class="empty-state animate-fade-in">
+            <div class="empty-state__icon">
+                <i class="fa-solid fa-bus"></i>
+            </div>
+            <h3 class="empty-state__title" data-i18n="journey.noResults.title">Sefer Bulunamadı</h3>
+            <p class="empty-state__text" data-i18n="journey.noResults.description">
+                Aradığınız kriterlere uygun sefer bulunamadı. Lütfen farklı bir tarih veya güzergah deneyin.
+            </p>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg">
+                <i class="fa-solid fa-search me-2"></i><span data-i18n="journey.noResults.newSearch">Yeni Arama</span>
+            </a>
+        </div>
+    }
+    else
+    {
+        <!-- Active Filters Display -->
+        <div class="active-filters" id="activeFilters" style="display: none;">
+            <span class="active-filters__label" data-i18n="journey.filter.activeFilters">Aktif Filtreler:</span>
+            <div class="active-filters__tags" id="activeFilterTags"></div>
+            <button type="button" class="active-filters__clear" id="clearAllFilters" data-i18n="journey.filter.clearAll">
+                Tümünü Temizle
+            </button>
+        </div>
+
+        <!-- Toolbar: Results Info & Sorting -->
+        <div class="journey-toolbar">
+            <div class="results-info" id="resultsInfo">
+                <span class="results-count">
+                    <strong id="visibleCount">@Model.JourneyCount</strong> / @Model.JourneyCount <span data-i18n="journey.journeysShowing">sefer gösteriliyor</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Journey List -->
+        <div class="journey-list" id="journeyList">
+            @{ var index = 0; }
+            @foreach (var journey in Model.Journeys)
+            {
+                if (journey.Journey == null) continue;
+                
+                var animationDelay = index * 50;
+                var departureHour = 0;
+                if (!string.IsNullOrEmpty(journey.Journey.DepartureTime))
+                {
+                    int.TryParse(journey.Journey.DepartureTime.Split(':')[0], out departureHour);
+                }
+                
+                // Declare all stop variables once
+                var originStop = journey.Journey.OriginStop;
+                var destinationStop = journey.Journey.DestinationStop;
+                var originCity = journey.Journey.Origin ?? "";
+                var destinationCity = journey.Journey.Destination ?? "";
+                var originStationName = originStop?.Name ?? "";
+                var destinationStationName = destinationStop?.Name ?? "";
+                var originName = originStop?.Name ?? journey.Journey.Origin ?? "";
+                var destName = destinationStop?.Name ?? journey.Journey.Destination ?? "";
+                
+                <div class="journey-card animate-slide-up" 
+                        style="animation-delay: @(animationDelay)ms"
+                        data-price="@journey.DisplayPrice"
+                        data-company="@journey.PartnerName"
+                        data-bus-type="@journey.BusType"
+                        data-departure-hour="@departureHour"
+                        data-duration="@journey.Journey.Duration">
+                    <div class="journey-card__content">
+                        
+                        <!-- Time Info -->
+                        <div class="journey-card__time">
+                            <div class="journey-card__departure">
+                                <span class="time">@journey.Journey.DepartureTime</span>
+                                <span class="label" data-i18n="journey.departure">Kalkış</span>
+                                @if (!string.IsNullOrEmpty(originStationName))
+                                {
+                                    <small class="station-name">@originStationName</small>
+                                }
+                            </div>
+                            
+                            <div class="journey-card__duration">
+                                <div class="duration-line">
+                                    <i class="fa-solid fa-bus"></i>
+                                </div>
+                                @if (!string.IsNullOrEmpty(journey.Journey.Duration))
+                                {
+                                    <span class="duration-text">@journey.Journey.Duration</span>
+                                }
+                            </div>
+                            
+                            <div class="journey-card__arrival">
+                                <span class="time">@journey.Journey.ArrivalTime</span>
+                                <span class="label" data-i18n="journey.arrival">Varış</span>
+                                @if (!string.IsNullOrEmpty(destinationStationName))
+                                {
+                                    <small class="station-name">@destinationStationName</small>
+                                }
+                            </div>
+                        </div>
+                        
+                        <!-- Partner Info -->
+                        <div class="journey-card__partner">
+                            @if (!string.IsNullOrEmpty(journey.PartnerLogoUrl))
+                            {
+                                <img src="@journey.PartnerLogoUrl" 
+                                        alt="@journey.PartnerName" 
+                                        class="partner-logo"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="partner-logo-fallback" style="display:none;">
+                                    <i class="fa-solid fa-bus"></i>
+                                </div>
+                            }
+                            <span class="partner-name">@journey.PartnerName</span>
+                            @if (!string.IsNullOrEmpty(journey.BusType))
+                            {
+                                <span class="bus-type">@journey.BusType</span>
+                            }
+                        </div>
+                        
+                        <!-- Price & Action -->
+                        <div class="journey-card__action">
+                            <div class="journey-card__price">
+                                <span class="price-amount">@journey.DisplayPrice.ToString("N0")</span>
+                                <span class="price-currency">@journey.Journey.DisplayCurrency</span>
+                            </div>
+                            
+                            <div class="journey-card__buttons">
+                                <button type="button" 
+                                        class="map-btn"
+                                        data-origin="@originName"
+                                        data-destination="@destName"
+                                        data-origin-time="@journey.Journey.DepartureTime"
+                                        data-dest-time="@journey.Journey.ArrivalTime"
+                                        title="Haritada Göster">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                </button>
+                                <a href="https://www.obilet.com/seferler/@Model.OriginId-@Model.DestinationId/@Model.ApiFormattedDate/@journey.Id" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    class="select-btn">
+                                    <span data-i18n="journey.inspect">İncele</span>
+                                    <i class="fa-solid fa-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                index++;
+            }
+        </div>
+
+        <!-- No Results After Filter -->
+        <div class="filter-no-results" id="filterNoResults" style="display: none;">
+            <div class="filter-no-results__icon">
+                <i class="fa-solid fa-filter-circle-xmark"></i>
+            </div>
+            <h4 data-i18n="journey.filter.noResults">Filtrelere Uygun Sefer Bulunamadı</h4>
+            <p data-i18n="journey.filter.noResultsDesc">Filtreleri değiştirerek tekrar deneyin.</p>
+            <button type="button" class="btn btn-outline-primary" id="resetFiltersAlt">
+                <i class="fa-solid fa-rotate-left me-2"></i><span data-i18n="journey.filter.resetFilters">Filtreleri Sıfırla</span>
+            </button>
+        </div>
+        
+        <!-- Results Footer -->
+        <div class="journey-footer">
+            <p class="journey-footer__text" data-i18n="journey.footer">
+                <i class="fa-solid fa-info-circle me-2"></i>
+                Fiyatlar ve müsaitlik değişkenlik gösterebilir. Güncel bilgi için seçtiğiniz seferi inceleyin.
+            </p>
+        </div>
+    }
+
+</div>

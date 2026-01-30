@@ -1,0 +1,56 @@
+<div class="map-drawer" id="mapDrawer">
+    <div class="map-drawer__overlay" id="mapDrawerOverlay"></div>
+    <div class="map-drawer__content">
+        <div class="map-drawer__header">
+            <h3 class="map-drawer__title">
+                <i class="fa-solid fa-map-location-dot me-2"></i>
+                <span data-i18n="journey.map.title">Güzergah Haritası</span>
+            </h3>
+            <button type="button" class="map-drawer__close" id="mapDrawerClose">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="map-drawer__info">
+            <div class="route-info">
+                <div class="route-point route-point--origin">
+                    <div class="route-point__icon">
+                        <i class="fa-solid fa-circle-dot"></i>
+                    </div>
+                    <div class="route-point__details">
+                        <span class="route-point__label" data-i18n="journey.departure">Kalkış</span>
+                        <span class="route-point__name" id="mapOriginName">-</span>
+                        <span class="route-point__time" id="mapOriginTime">-</span>
+                    </div>
+                </div>
+                <div class="route-line">
+                    <i class="fa-solid fa-bus"></i>
+                </div>
+                <div class="route-point route-point--destination">
+                    <div class="route-point__icon">
+                        <i class="fa-solid fa-flag-checkered"></i>
+                    </div>
+                    <div class="route-point__details">
+                        <span class="route-point__label" data-i18n="journey.arrival">Varış</span>
+                        <span class="route-point__name" id="mapDestName">-</span>
+                        <span class="route-point__time" id="mapDestTime">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="map-drawer__map" id="mapContainer">
+            <div class="map-loading" id="mapLoading">
+                <div class="spinner-border text-primary" role="status"></div>
+                <span>Loading map...</span>
+            </div>
+        </div>
+        
+        <div class="map-drawer__actions">
+            <a href="#" id="googleMapsLink" target="_blank" rel="noopener noreferrer" class="map-external-btn">
+                <i class="fa-solid fa-external-link-alt me-2"></i>
+                <span data-i18n="journey.map.openGoogleMaps">Google Maps'te Aç</span>
+            </a>
+        </div>
+    </div>
+</div>

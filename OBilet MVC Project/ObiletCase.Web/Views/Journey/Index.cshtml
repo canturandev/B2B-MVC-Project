@@ -1,0 +1,28 @@
+@model ObiletCase.Web.Models.JourneyIndexViewModel
+
+@{
+    ViewData["Title"] = "Seferler";
+}
+
+<!-- Journey Header -->
+<partial name="_Header" model="Model" />
+
+<!-- Journey Results -->
+<section class="journey-results">
+    <div class="container">
+        <div class="row">
+            <!-- Filter Sidebar -->
+            <partial name="_FilterSidebar" model="Model" />
+
+            <!-- Journey List -->
+           <partial name="_JourneyList" model="Model" />
+        </div>
+    </div>
+</section>
+
+<!-- Map Drawer -->
+<partial name="_MapDrawer" model="Model" />
+
+<!-- Leaflet CSS & JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

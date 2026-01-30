@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "language": "Türkçe",
+    "code": "tr"
+  },
+  "navbar": {
+    "home": "Ana Sayfa",
+    "privacy": "Gizlilik Politikası"
+  },
+  "cookie": {
+    "title": "Çerez Politikası ve Aydınlatma Metni",
+    "description": "Web sitemizde size en iyi deneyimi sunabilmek için çerezler kullanıyoruz. Kişisel verilerinizin işlenmesi hakkında detaylı bilgi için Gizlilik Politikası ve Aydınlatma Metni'ni inceleyebilirsiniz.",
+    "privacyLink": "Gizlilik Politikası",
+    "clarificationLink": "Aydınlatma Metni",
+    "accept": "Kabul Et",
+    "reject": "Reddet"
+  },
+  "home": {
+    "pageTitle": "Otobüs Bileti Bul",
+    "subtitle": "Haydi Yolculuk Başlasın",
+    "from": "Nereden",
+    "to": "Nereye",
+    "selectPlaceholder": "Seçiniz",
+    "swapTooltip": "Yön Değiştir",
+    "departureDate": "Gidiş Tarihi",
+    "selectDate": "Tarih Seçin",
+    "today": "Bugün",
+    "tomorrow": "Yarın",
+    "searchButton": "Otobüs Bileti Bul",
+    "searching": "Aranıyor...",
+    "trustBadges": {
+      "securePayment": "Güvenli Ödeme",
+      "refundGuarantee": "%100 İade Garantisi",
+      "support": "7/24 Destek"
+    }
+  },
+  "datePicker": {
+    "months": ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+    "weekdays": ["Pzt", "Sal", "Çar", "Per", "Cum", "Cmt", "Paz"],
+    "selectDate": "Tarih Seçin"
+  },
+  "journey": {
+    "pageTitle": "Sefer Sonuçları",
+    "journeyCount": "Sefer",
+    "departure": "Kalkış",
+    "arrival": "Varış",
+    "inspect": "İncele",
+    "sortBy": "Sırala:",
+    "priceAsc": "Fiyat ↑",
+    "priceDesc": "Fiyat ↓",
+    "cheapest": "En Ucuz",
+    "fastest": "En Hızlı",
+    "secondFastest": "2. En Hızlı",
+    "showResults": "Sonuç Göster",
+    "journeysShowing": "sefer gösteriliyor",
+    "noResults": {
+      "title": "Sefer Bulunamadı",
+      "description": "Aradığınız kriterlere uygun sefer bulunamadı. Lütfen farklı bir tarih veya güzergah deneyin.",
+      "newSearch": "Yeni Arama"
+    },
+    "footer": "Fiyatlar ve müsaitlik değişkenlik gösterebilir. Güncel bilgi için seçtiğiniz seferi inceleyin.",
+    "filter": {
+      "title": "Filtrele",
+      "reset": "Sıfırla",
+      "quickFilters": "HIZLI FİLTRELER",
+      "cheapestTickets": "En Ucuz Biletler",
+      "fastestJourneys": "En Hızlı Seferler",
+      "priceRange": "FİYAT ARALIĞI",
+      "min": "Min",
+      "max": "Max",
+      "departureTime": "KALKIŞ SAATİ",
+      "night": "Gece",
+      "morning": "Sabah",
+      "afternoon": "Öğle",
+      "evening": "Akşam",
+      "busCompany": "OTOBÜS FİRMASI",
+      "seatLayout": "KOLTUK DÜZENİ",
+      "applyFilters": "Filtreleri Uygula",
+      "activeFilters": "Aktif Filtreler:",
+      "clearAll": "Tümünü Temizle",
+      "noResults": "Filtrelere Uygun Sefer Bulunamadı",
+      "noResultsDesc": "Filtreleri değiştirerek tekrar deneyin.",
+      "resetFilters": "Filtreleri Sıfırla"
+    },
+    "map": {
+      "title": "Güzergah Haritası",
+      "openGoogleMaps": "Google Maps'te Aç"
+    }
+  },
+  "privacy": {
+    "pageTitle": "Gizlilik Politikası",
+    "intro": "Bu gizlilik politikası, kişisel verilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.",
+    "sections": {
+      "dataCollection": {
+        "title": "Veri Toplama",
+        "content": "Hizmetlerimizi kullanırken, size daha iyi bir deneyim sunmak için bazı bilgilerinizi topluyoruz. Bu bilgiler arasında IP adresi, tarayıcı bilgileri ve kullanım verileri bulunmaktadır."
+      },
+      "dataUsage": {
+        "title": "Veri Kullanımı",
+        "content": "Topladığımız veriler, hizmet kalitemizi artırmak, kullanıcı deneyimini iyileştirmek ve güvenliği sağlamak için kullanılmaktadır."
+      },
+      "dataSecurity": {
+        "title": "Veri Güvenliği",
+        "content": "Verilerinizin güvenliği bizim için önemlidir. Endüstri standardı güvenlik önlemleri kullanarak bilgilerinizi koruyoruz."
+      },
+      "cookies": {
+        "title": "Çerezler",
+        "content": "Web sitemiz, deneyiminizi geliştirmek için çerezler kullanmaktadır. Tarayıcı ayarlarınızdan çerez tercihlerinizi yönetebilirsiniz."
+      },
+      "contact": {
+        "title": "İletişim",
+        "content": "Gizlilik politikamız hakkında sorularınız varsa, bizimle iletişime geçebilirsiniz."
+      }
+    }
+  },
+  "footer": {
+    "copyright": "Tüm hakları saklıdır."
+  },
+  "errors": {
+    "sameLocation": "Kalkış ve varış noktası aynı olamaz!",
+    "pastDate": "Geçmiş bir tarih seçemezsiniz!",
+    "sessionError": "Oturum başlatılamadı. Lütfen sayfayı yenileyin.",
+    "loadError": "Bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+    "locationLoadError": "Şehir listesi yüklenemedi."
+  }
+}

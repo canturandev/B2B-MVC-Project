@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "Gizlilik Politikası";
+}
+
+<section class="privacy-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <!-- Privacy Header -->
+                <div class="privacy-header animate-fade-in">
+                    <div class="privacy-header__icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h1 class="privacy-header__title" data-i18n="privacy.pageTitle">Gizlilik Politikası</h1>
+                    <p class="privacy-header__intro" data-i18n="privacy.intro">
+                        Bu gizlilik politikası, kişisel verilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.
+                    </p>
+                </div>
+
+                <!-- Privacy Content -->
+                <div class="privacy-content animate-fade-in">
+                    
+                    <div class="privacy-card">
+                        <div class="privacy-card__icon">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <div class="privacy-card__content">
+                            <h3 class="privacy-card__title" data-i18n="privacy.sections.dataCollection.title">Veri Toplama</h3>
+                            <p class="privacy-card__text" data-i18n="privacy.sections.dataCollection.content">
+                                Hizmetlerimizi kullanırken, size daha iyi bir deneyim sunmak için bazı bilgilerinizi topluyoruz. 
+                                Bu bilgiler arasında IP adresi, tarayıcı bilgileri ve kullanım verileri bulunmaktadır.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="privacy-card">
+                        <div class="privacy-card__icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div class="privacy-card__content">
+                            <h3 class="privacy-card__title" data-i18n="privacy.sections.dataUsage.title">Veri Kullanımı</h3>
+                            <p class="privacy-card__text" data-i18n="privacy.sections.dataUsage.content">
+                                Topladığımız veriler, hizmet kalitemizi artırmak, kullanıcı deneyimini iyileştirmek ve güvenliği 
+                                sağlamak için kullanılmaktadır.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="privacy-card">
+                        <div class="privacy-card__icon">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <div class="privacy-card__content">
+                            <h3 class="privacy-card__title" data-i18n="privacy.sections.dataSecurity.title">Veri Güvenliği</h3>
+                            <p class="privacy-card__text" data-i18n="privacy.sections.dataSecurity.content">
+                                Verilerinizin güvenliği bizim için önemlidir. Endüstri standardı güvenlik önlemleri kullanarak 
+                                bilgilerinizi koruyoruz.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="privacy-card">
+                        <div class="privacy-card__icon">
+                            <i class="fa-solid fa-cookie-bite"></i>
+                        </div>
+                        <div class="privacy-card__content">
+                            <h3 class="privacy-card__title" data-i18n="privacy.sections.cookies.title">Çerezler</h3>
+                            <p class="privacy-card__text" data-i18n="privacy.sections.cookies.content">
+                                Web sitemiz, deneyiminizi geliştirmek için çerezler kullanmaktadır. 
+                                Tarayıcı ayarlarınızdan çerez tercihlerinizi yönetebilirsiniz.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="privacy-card">
+                        <div class="privacy-card__icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="privacy-card__content">
+                            <h3 class="privacy-card__title" data-i18n="privacy.sections.contact.title">İletişim</h3>
+                            <p class="privacy-card__text" data-i18n="privacy.sections.contact.content">
+                                Gizlilik politikamız hakkında sorularınız varsa, bizimle iletişime geçebilirsiniz.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Back Button -->
+                <div class="text-center mt-5">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg">
+                        <i class="fa-solid fa-arrow-left me-2"></i>
+                        <span data-i18n="navbar.home">Ana Sayfa</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

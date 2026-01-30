@@ -1,0 +1,142 @@
+﻿@model ObiletCase.Web.Models.IndexViewModel
+
+@{
+    ViewData["Title"] = "Otobüs Bileti Bul";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7 col-sm-10">
+                
+                <!-- Search Card -->
+                <div class="search-card animate-fade-in">
+                    
+                    <!-- Card Header -->
+                    <div class="search-card__header">
+                        <div class="search-card__logo">
+                            <i class="fa-solid fa-bus-simple"></i>
+                        </div>
+                        <h1 class="search-card__title">obilet</h1>
+                        <p class="search-card__subtitle" data-i18n="home.subtitle">Haydi Yolculuk Başlasın</p>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="search-card__body">
+                        
+                        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="fa-solid fa-circle-exclamation me-2"></i>
+                                @Model.ErrorMessage
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        }
+                        
+                        @if (TempData["Error"] != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="fa-solid fa-circle-exclamation me-2"></i>
+                                @TempData["Error"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        }
+
+                        <form asp-action="Index" method="post" id="searchForm">
+                            @Html.AntiForgeryToken()
+                            
+                            <!-- Hidden fields for city names -->
+                            @Html.HiddenFor(m => m.OriginName)
+                            @Html.HiddenFor(m => m.DestinationName)
+                            
+                            <!-- Location Selection -->
+                            <div class="location-group">
+                                
+                                <!-- Origin -->
+                                <div class="form-floating location-input">
+                                    <select asp-for="OriginId" 
+                                            asp-items="Model.OriginLocations" 
+                                            class="form-select" 
+                                            id="originSelect"
+                                            required>
+                                        <option value="" data-i18n="home.selectPlaceholder">Seçiniz</option>
+                                    </select>
+                                    <label for="originSelect">
+                                        <i class="fa-solid fa-circle text-primary me-2"></i><span data-i18n="home.from">Nereden</span>
+                                    </label>
+                                </div>
+
+                                <!-- Swap Button -->
+                                <button type="button" class="swap-btn" id="swapBtn" data-i18n-title="home.swapTooltip" title="Yön Değiştir">
+                                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                                </button>
+
+                                <!-- Destination -->
+                                <div class="form-floating location-input">
+                                    <select asp-for="DestinationId" 
+                                            asp-items="Model.DestinationLocations" 
+                                            class="form-select" 
+                                            id="destinationSelect"
+                                            required>
+                                        <option value="" data-i18n="home.selectPlaceholder">Seçiniz</option>
+                                    </select>
+                                    <label for="destinationSelect">
+                                        <i class="fa-solid fa-location-dot text-danger me-2"></i><span data-i18n="home.to">Nereye</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Date Selection -->
+                            <div class="date-group">
+                                <div class="date-group__header">
+                                    <span class="date-group__label">
+                                        <i class="fa-regular fa-calendar me-2"></i><span data-i18n="home.departureDate">Gidiş Tarihi</span>
+                                    </span>
+                                    <div class="date-presets">
+                                        <button type="button" class="date-preset" data-date="today" data-i18n="home.today">Bugün</button>
+                                        <button type="button" class="date-preset active" data-date="tomorrow" data-i18n="home.tomorrow">Yarın</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-floating">
+                                    <input asp-for="DepartureDate" 
+                                           type="date" 
+                                           class="form-control date-input" 
+                                           id="dateInput"
+                                           required>
+                                    <label for="dateInput" data-i18n="home.selectDate">Tarih Seçin</label>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="search-btn" id="searchBtn">
+                                <i class="fa-solid fa-magnifying-glass me-2"></i>
+                                <span data-i18n="home.searchButton">Otobüs Bileti Bul</span>
+                            </button>
+                            
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="trust-badges animate-fade-in-delayed">
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span data-i18n="home.trustBadges.securePayment">Güvenli Ödeme</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span data-i18n="home.trustBadges.refundGuarantee">%100 İade Garantisi</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-headset"></i>
+                        <span data-i18n="home.trustBadges.support">7/24 Destek</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

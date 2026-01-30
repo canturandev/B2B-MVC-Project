@@ -1,0 +1,127 @@
+<div class="col-lg-3 col-md-4">
+    <div class="filter-panel">
+        <div class="filter-panel__header">
+            <h3 class="filter-panel__title">
+                <i class="fa-solid fa-sliders me-2"></i><span data-i18n="journey.filter.title">Filtrele</span>
+            </h3>
+            <button type="button" class="filter-reset-btn" id="resetFilters">
+                <i class="fa-solid fa-rotate-left me-1"></i><span data-i18n="journey.filter.reset">Sıfırla</span>
+            </button>
+        </div>
+
+        <!-- Quick Filters -->
+        <div class="filter-section">
+            <h4 class="filter-section__title" data-i18n="journey.filter.quickFilters">Hızlı Filtreler</h4>
+            <div class="quick-filters">
+                <label class="quick-filter-item">
+                    <input type="checkbox" id="filterCheapest" class="filter-checkbox">
+                    <span class="quick-filter-label">
+                        <i class="fa-solid fa-tag text-success"></i>
+                        <span data-i18n="journey.filter.cheapestTickets">En Ucuz Biletler</span>
+                    </span>
+                </label>
+                <label class="quick-filter-item">
+                    <input type="checkbox" id="filterFastest" class="filter-checkbox">
+                    <span class="quick-filter-label">
+                        <i class="fa-solid fa-bolt text-warning"></i>
+                        <span data-i18n="journey.filter.fastestJourneys">En Hızlı Seferler</span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-section">
+            <h4 class="filter-section__title" data-i18n="journey.filter.priceRange">Fiyat Aralığı</h4>
+            <div class="price-range-inputs">
+                <div class="price-input-group">
+                    <label data-i18n="journey.filter.min">Min</label>
+                    <input type="number" id="priceMin" class="price-input" placeholder="0" min="0">
+                    <span class="currency">₺</span>
+                </div>
+                <span class="price-separator">-</span>
+                <div class="price-input-group">
+                    <label data-i18n="journey.filter.max">Max</label>
+                    <input type="number" id="priceMax" class="price-input" placeholder="5000" min="0">
+                    <span class="currency">₺</span>
+                </div>
+            </div>
+            <div class="price-range-slider">
+                <input type="range" id="priceSlider" min="0" max="5000" value="5000" class="range-slider">
+                <div class="price-range-labels">
+                    <span>0 ₺</span>
+                    <span id="priceSliderValue">5000 ₺</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Departure Time -->
+        <div class="filter-section">
+            <h4 class="filter-section__title" data-i18n="journey.filter.departureTime">Kalkış Saati</h4>
+            <div class="time-filters">
+                <label class="time-filter-item">
+                    <input type="checkbox" class="filter-checkbox time-filter" data-start="00:00" data-end="06:00">
+                    <span class="time-filter-label">
+                        <i class="fa-solid fa-moon"></i>
+                        <span>00:00 - 06:00</span>
+                        <small data-i18n="journey.filter.night">Gece</small>
+                    </span>
+                </label>
+                <label class="time-filter-item">
+                    <input type="checkbox" class="filter-checkbox time-filter" data-start="06:00" data-end="12:00">
+                    <span class="time-filter-label">
+                        <i class="fa-solid fa-sun"></i>
+                        <span>06:00 - 12:00</span>
+                        <small data-i18n="journey.filter.morning">Sabah</small>
+                    </span>
+                </label>
+                <label class="time-filter-item">
+                    <input type="checkbox" class="filter-checkbox time-filter" data-start="12:00" data-end="18:00">
+                    <span class="time-filter-label">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                        <span>12:00 - 18:00</span>
+                        <small data-i18n="journey.filter.afternoon">Öğle</small>
+                    </span>
+                </label>
+                <label class="time-filter-item">
+                    <input type="checkbox" class="filter-checkbox time-filter" data-start="18:00" data-end="24:00">
+                    <span class="time-filter-label">
+                        <i class="fa-solid fa-moon"></i>
+                        <span>18:00 - 24:00</span>
+                        <small data-i18n="journey.filter.evening">Akşam</small>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Bus Companies -->
+        <div class="filter-section">
+            <h4 class="filter-section__title" data-i18n="journey.filter.busCompany">Otobüs Firması</h4>
+            <div class="company-filters" id="companyFilters">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Bus Type -->
+        <div class="filter-section">
+            <h4 class="filter-section__title" data-i18n="journey.filter.seatLayout">Koltuk Düzeni</h4>
+            <div class="bus-type-filters" id="busTypeFilters">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Apply Button (Mobile) -->
+        <div class="filter-apply-mobile">
+            <button type="button" class="filter-apply-btn" id="applyFilters">
+                <i class="fa-solid fa-check me-2"></i><span data-i18n="journey.filter.applyFilters">Filtreleri Uygula</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Filter Toggle -->
+    <button type="button" class="filter-toggle-btn" id="filterToggle">
+        <i class="fa-solid fa-filter me-2"></i>
+        <span data-i18n="journey.filter.title">Filtrele</span>
+        <span class="filter-count" id="filterCount" style="display: none;">0</span>
+    </button>
+    </div>

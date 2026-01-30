@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ObiletCase.Business/ObiletCase.Business.csproj" />
+  <Project Path="ObiletCase.Core/ObiletCase.Core.csproj" />
+  <Project Path="ObiletCase.Web/ObiletCase.Web.csproj" />
+</Solution>

@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="tr" data-lang="tr" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Obilet - Türkiye'nin en güvenilir otobüs bileti platformu" />
+    <meta name="theme-color" content="#2F4EB4" />
+    
+    <title>@ViewData["Title"] - obilet</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-consent__container">
+            <div class="cookie-consent__content">
+                <div class="cookie-consent__icon">
+                    <i class="fa-solid fa-cookie-bite"></i>
+                </div>
+                <div class="cookie-consent__text">
+                    <h3 class="cookie-consent__title" data-i18n="cookie.title">Çerez Politikası ve Aydınlatma Metni</h3>
+                    <p class="cookie-consent__description" data-i18n="cookie.description">
+                        Web sitemizde size en iyi deneyimi sunabilmek için çerezler kullanıyoruz. 
+                        Kişisel verilerinizin işlenmesi hakkında detaylı bilgi için 
+                        <a href="/Home/Privacy" data-i18n="cookie.privacyLink">Gizlilik Politikası</a> ve 
+                        <a href="/Home/Privacy" data-i18n="cookie.clarificationLink">Aydınlatma Metni</a>'ni inceleyebilirsiniz.
+                    </p>
+                </div>
+                <div class="cookie-consent__actions">
+                    <button type="button" class="cookie-btn cookie-btn--accept" id="cookieAccept" data-i18n="cookie.accept">
+                        <i class="fa-solid fa-check me-2"></i>Kabul Et
+                    </button>
+                    <button type="button" class="cookie-btn cookie-btn--reject" id="cookieReject" data-i18n="cookie.reject">
+                        <i class="fa-solid fa-times me-2"></i>Reddet
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                <i class="fa-solid fa-bus-simple me-2"></i>
+                <span class="fw-bold">obilet</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <!-- Theme Toggle -->
+                    <li class="nav-item">
+                        <div class="theme-toggle">
+                            <button type="button" class="theme-btn active" data-theme="light" title="Aydınlık Tema">
+                                <i class="fa-solid fa-sun"></i>
+                            </button>
+                            <button type="button" class="theme-btn" data-theme="dark" title="Karanlık Tema">
+                                <i class="fa-solid fa-moon"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <!-- Language Switcher -->
+                    <li class="nav-item me-2">
+                        <div class="language-switcher">
+                            <button type="button" class="lang-btn active" data-lang="tr" title="Türkçe">
+                                TR
+                            </button>
+                            <span class="lang-divider">|</span>
+                            <button type="button" class="lang-btn" data-lang="en" title="English">
+                                EN
+                            </button>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">
+                            <i class="fa-solid fa-house me-1"></i> 
+                            <span data-i18n="navbar.home">Ana Sayfa</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-wide" asp-controller="Home" asp-action="Privacy">
+                            <i class="fa-solid fa-shield-halved me-1"></i> 
+                            <span data-i18n="navbar.privacy">Gizlilik Politikası</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <span class="text-muted">
+                        © @DateTime.Now.Year <strong>obilet</strong> - <span data-i18n="footer.copyright">Tüm hakları saklıdır.</span>
+                    </span>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://x.com/obilet" target="_blank" rel="noopener noreferrer" class="footer-link me-3" title="X (Twitter)">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/obiletcom/" target="_blank" rel="noopener noreferrer" class="footer-link me-3" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/obiletcom/?locale=tr_TR" target="_blank" rel="noopener noreferrer" class="footer-link" title="Facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/i18n.js" asp-append-version="true"></script>
+    <script type="module" src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

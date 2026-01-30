@@ -1,0 +1,33 @@
+@model ObiletCase.Web.Models.JourneyIndexViewModel
+
+<section class="journey-header">
+    <div class="container">
+        <div class="journey-header__content">
+            <a asp-controller="Home" asp-action="Index" class="journey-header__back">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            
+            <div class="journey-header__info">
+                <h1 class="journey-header__title" data-i18n="journey.pageTitle">Sefer Sonuçları</h1>
+                <p class="journey-header__subtitle">
+                    <i class="fa-regular fa-calendar me-2"></i>@Model.FormattedDate
+                </p>
+                <div class="journey-route">
+                    <span class="route-origin">@Model.Origin</span>
+                    <i class="fa-solid fa-arrow-right mx-2"></i>
+                    <span class="route-destination">@Model.Destination</span>
+                </div>
+            </div>
+            
+            @if (Model.HasJourneys)
+            {
+                <div class="journey-header__stats">
+                    <span class="journey-stat">
+                        <i class="fa-solid fa-bus me-1"></i>
+                        @Model.JourneyCount <span data-i18n="journey.journeyCount">Sefer</span>
+                    </span>
+                </div>
+            }
+        </div>
+    </div>
+</section>
